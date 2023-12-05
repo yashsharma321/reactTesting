@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 
-export default function CommentForm() {
+export default function CommentForm({ setComments }) {
   const [text, setText] = useState("");
   const [checked, setChecked] = useState(false);
+
+  const addComments = () => {
+    setComments((prev) => [...prev, { id: Date.now(), text: text }]);
+    setText("");
+  };
 
   return (
     <div>
@@ -21,10 +26,7 @@ export default function CommentForm() {
       />
       <label htmlFor="checkbox">I agree to terms and conditions</label>
 
-      <button
-        disabled={!checked || !text}
-        onClick={() => console.log("clicked")}
-      >
+      <button disabled={!checked || !text} onClick={addComments}>
         comment
       </button>
     </div>

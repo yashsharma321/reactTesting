@@ -7,13 +7,18 @@ import PressHere from "./components/SearchButton/Button";
 import SearchBox from "./components/SearchButton/Search";
 import List from "./components/ListItems/List";
 import CommentForm from "./components/CommentForm/CommentForm";
+import CommentList from "./components/CommentForm/CommentList";
 
 function App() {
   const [showDiv] = useState(true);
+  const [comments, setComments] = useState([]);
   return (
     <div className="App">
       <div className="separator">
-        <CommentForm />
+        <CommentList allcomments={comments} />
+      </div>
+      <div className="separator">
+        <CommentForm setComments={setComments} />
       </div>
       <div className="separator">
         <List />
