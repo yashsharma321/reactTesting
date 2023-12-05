@@ -1,17 +1,20 @@
 import "./App.css";
+import { useState } from "react";
 import Counter from "../src/components/counter/Counter";
 import Button from "./components/InputShow/Button";
 import InputBox from "./components/InputShow/InputBox";
 import PressHere from "./components/SearchButton/Button";
 import SearchBox from "./components/SearchButton/Search";
 import List from "./components/ListItems/List";
-
-import { useState } from "react";
+import CommentForm from "./components/CommentForm/CommentForm";
 
 function App() {
   const [showDiv] = useState(true);
   return (
     <div className="App">
+      <div className="separator">
+        <CommentForm />
+      </div>
       <div className="separator">
         <List />
       </div>
